@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trimerge"
+version = "0.1.0"
+description = "Three-way merge of Python dicts and YAML files with conflict detection"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [
+    { name = "rsleedbx" }
+]
+keywords = [
+    "merge",
+    "three-way-merge",
+    "yaml",
+    "dict",
+    "config",
+    "conflict",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+yaml = [
+    "ruamel.yaml>=0.18",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruamel.yaml>=0.18",
+]
+
+[project.urls]
+Homepage   = "https://github.com/rsleedbx/trimerge"
+Repository = "https://github.com/rsleedbx/trimerge"
+Issues     = "https://github.com/rsleedbx/trimerge/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trimerge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-q"
+
+[tool.coverage.run]
+source = ["src/trimerge"]
